@@ -1,0 +1,8 @@
+<div id="todo{{ todo.id }}">
+  @for (task of todo.tasks; track task.id) {
+    <div class="task">
+      <input type="checkbox" id="task-{{ task.id }}-status" checked="{{ task.isCompleted }}" />
+      <p>{{ task.title }}</p>
+    </div>
+  }
+</div>
