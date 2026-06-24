@@ -1,12 +1,10 @@
 namespace backend.Models;
 
-public class Todo
+public class Task
 {
   public int Id { get; set; }
 
   public string Title { get; set; } = "";
 
-  public List<Task> Tasks { get; set; } = [];
-
-  public int NextId {get; set;} = 1;
+  public bool IsCompleted { get; set; }
 }

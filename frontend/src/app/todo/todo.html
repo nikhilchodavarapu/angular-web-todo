@@ -1,8 +1,16 @@
-<div id="todo{{ todo.id }}">
-  @for (task of todo.tasks; track task.id) {
-    <div class="task">
-      <input type="checkbox" id="task-{{ task.id }}-status" checked="{{ task.isCompleted }}" />
-      <p>{{ task.title }}</p>
-    </div>
+@if (loading()) {
+<p>loading</p>
+} @else {
+<div id="todo{{ todo().id }}">
+  @for (task of todo().tasks; track task.id) {
+  <div class="task">
+    <input type="checkbox" id="task-{{ task.id }}-status" checked="{{ task.isCompleted }}" />
+    <p>{{ task.title }}</p>
+  </div>
   }
+
+  <form id="add-task" (ngSubmit)="addTask()">
+    <input type="text" required [(ngModel)]="taskTitle" name="title">
+  </form>
 </div>
+}

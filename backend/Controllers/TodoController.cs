@@ -1,3 +1,4 @@
+using backend.DTO;
 using backend.Services;
 using Microsoft.AspNetCore.Mvc;
 namespace backend.Controllers;
@@ -18,6 +19,16 @@ public class TodoController : ControllerBase
   [Route("todo")]
   public IActionResult GetTodo()
   {
+    return Ok(todoService.GetTodo());
+  }
+
+
+  [HttpPost]
+  [Route("todo")]
+  public IActionResult AddTask(CreateTaskDto dto)
+  {
+    Console.WriteLine("Add Task");
+    todoService.AddTodo(dto.Title);
     return Ok(todoService.GetTodo());
   }
 }
